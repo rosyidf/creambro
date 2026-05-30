@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Creambro | Es Krim UMKM Rasa Premium</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#f4bb92",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#805533",
+                        "on-secondary-container": "#7a5761",
+                        "on-tertiary-fixed": "#07200e",
+                        "on-secondary-fixed": "#2d141c",
+                        "surface-container": "#f8ecdf",
+                        "secondary": "#78555e",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#83746b",
+                        "on-surface-variant": "#51443c",
+                        "surface-container-high": "#f2e6da",
+                        "secondary-container": "#ffd1dc",
+                        "on-secondary-fixed-variant": "#5e3e47",
+                        "tertiary": "#3c5640",
+                        "tertiary-fixed": "#cceacd",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffd9e2",
+                        "on-background": "#201b13",
+                        "on-tertiary-container": "#d1efd2",
+                        "on-surface": "#201b13",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#d5c3b8",
+                        "surface-container-low": "#fef2e5",
+                        "surface-variant": "#ece1d4",
+                        "surface": "#fff8f3",
+                        "surface-dim": "#e4d8cc",
+                        "primary-fixed": "#ffdcc5",
+                        "on-primary-fixed-variant": "#653d1e",
+                        "inverse-primary": "#f4bb92",
+                        "inverse-surface": "#362f27",
+                        "surface-bright": "#fff8f3",
+                        "on-tertiary-fixed-variant": "#334d37",
+                        "on-primary-container": "#ffe3d1",
+                        "secondary-fixed-dim": "#e7bbc6",
+                        "primary": "#6f4627",
+                        "surface-container-highest": "#ece1d4",
+                        "tertiary-fixed-dim": "#b1ceb2",
+                        "tertiary-container": "#536e57",
+                        "primary-container": "#8b5e3c",
+                        "inverse-on-surface": "#fbefe2",
+                        "background": "#fff8f3",
+                        "on-primary-fixed": "#301400",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff"
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "2rem",
+                        xl: "3rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        sm: "12px",
+                        base: "8px",
+                        margin_mobile: "20px",
+                        xs: "4px",
+                        md: "24px",
+                        gutter: "20px",
+                        lg: "40px",
+                        margin_desktop: "80px",
+                        xl: "64px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        .dark .glass-card {
+            background: rgba(48, 41, 34, 0.6);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        .pulse-pink {
+            animation: pulse-soft 3s infinite;
+        }
+        .scroll-progress {
+            height: 4px;
+            background: #8b5e3c;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: width 0.1s;
+        }
+        /* Navbar active link styling */
+        .nav-link {
+            transition: all 0.3s ease;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active {
+            color: #6f4627 !important;
+            border-bottom-color: #6f4627 !important;
+        }
+        .dark .nav-link.active {
+            color: #f4bb92 !important;
+            border-bottom-color: #f4bb92 !important;
+        }
+        .custom-img-placeholder {
+            background: linear-gradient(135deg, #ffe6d5 0%, #ffd1c1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #6f4627;
+            text-align: center;
+            font-weight: 500;
+        }
+        [data-custom-img="true"] {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        /* Hero background overlay animation */
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        .hero-bg-zoom {
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+        
+        /* Warna card berdasarkan rasa */
+        .card-durian { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+        .card-pandan { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); }
+        .card-chocolate { background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); }
+        .card-strawberry { background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); }
+        .card-taro { background: linear-gradient(135deg, #e9d5ff 0%, #d8b4fe 100%); }
+        .card-vanilla { background: linear-gradient(135deg, #fef3c7 0%, #ffedd5 100%); }
+        .dark .card-durian { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); }
+        .dark .card-pandan { background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); }
+        .dark .card-chocolate { background: linear-gradient(135deg, #7c2d12 0%, #9a3412 100%); }
+        .dark .card-strawberry { background: linear-gradient(135deg, #9d174d 0%, #be185d 100%); }
+        .dark .card-taro { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); }
+        .dark .card-vanilla { background: linear-gradient(135deg, #78350f 0%, #854d0e 100%); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="scroll-progress" id="progress" style="width: 0%"></div>
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/60 dark:bg-surface/60 backdrop-blur-lg border-b border-white/20 shadow-sm transition-all duration-300">
+    <div class="flex justify-between items-center h-20 px-margin_mobile md:px-margin_desktop max-w-7xl mx-auto">
+        <div class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary-fixed-dim">Creambro</div>
+        <nav class="hidden md:flex gap-lg items-center">
+            <a class="nav-link text-label-lg font-label-lg font-bold text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300" data-nav="home" href="#home">Home</a>
+            <a class="nav-link text-label-lg font-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300" data-nav="produk" href="#produk">Produk</a>
+            <a class="nav-link text-label-lg font-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300" data-nav="tentang" href="#tentang">Tentang</a>
+            <a class="nav-link text-label-lg font-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300" data-nav="testimoni" href="#testimoni">Testimoni</a>
+            <a class="nav-link text-label-lg font-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300" data-nav="kontak" href="#kontak">Kontak</a>
+        </nav>
+        <div class="flex items-center gap-base">
+            <button class="p-base hover:bg-surface-container rounded-full transition-colors" onclick="toggleDarkMode()">
+                <span class="material-symbols-outlined">dark_mode</span>
+            </button>
+            <button class="relative p-base hover:bg-surface-container rounded-full transition-colors" onclick="toggleCart()">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span id="cartCountBadge" class="absolute top-1 right-1 bg-secondary-container text-on-secondary-container text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+            </button>
+            <button onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})" class="hidden md:block bg-primary-container text-on-primary-container px-md py-base rounded-full font-label-lg hover:scale-105 active:scale-95 transition-all shadow-md">
+                Pesan Sekarang
+            </button>
+            <button id="mobileMenuBtn" class="md:hidden p-base">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobileDrawer" class="fixed left-0 top-0 h-full w-80 z-[60] bg-surface/95 dark:bg-surface-dim/95 backdrop-blur-xl shadow-xl flex flex-col p-md -translate-x-full transition-transform duration-500 ease-in-out">
+    <div class="flex justify-between items-center mb-lg">
+        <h2 class="text-headline-md font-bold text-primary">Menu</h2>
+        <button onclick="closeMobileDrawer()" class="p-base hover:bg-surface-container rounded-full">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <nav class="flex flex-col gap-md">
+        <a onclick="closeMobileDrawer()" href="#home" class="text-body-lg font-medium p-base hover:bg-primary-fixed rounded-lg">Home</a>
+        <a onclick="closeMobileDrawer()" href="#produk" class="text-body-lg font-medium p-base hover:bg-primary-fixed rounded-lg">Produk</a>
+        <a onclick="closeMobileDrawer()" href="#tentang" class="text-body-lg font-medium p-base hover:bg-primary-fixed rounded-lg">Tentang</a>
+        <a onclick="closeMobileDrawer()" href="#testimoni" class="text-body-lg font-medium p-base hover:bg-primary-fixed rounded-lg">Testimoni</a>
+        <a onclick="closeMobileDrawer()" href="#kontak" class="text-body-lg font-medium p-base hover:bg-primary-fixed rounded-lg">Kontak</a>
+    </nav>
+</div>
+
+<!-- Cart Drawer -->
+<div class="fixed right-0 top-0 h-full w-96 z-[60] bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-xl shadow-xl flex flex-col p-md translate-x-full transition-transform duration-500 ease-in-out" id="cartDrawer">
+    <div class="flex justify-between items-center mb-lg">
+        <div>
+            <h2 class="text-headline-sm font-headline-sm text-primary">Keranjang Belanja</h2>
+            <p class="text-label-lg font-label-lg text-on-surface-variant">Pesanan manis Anda</p>
+        </div>
+        <button class="p-base hover:bg-surface-container rounded-full" onclick="toggleCart()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <div id="cartItemsContainer" class="flex-grow space-y-md overflow-y-auto">
+        <div class="text-center text-on-surface-variant py-lg">Keranjang masih kosong</div>
+    </div>
+    <div id="cartFooter" class="pt-lg border-t border-outline-variant mt-md hidden">
+        <div class="flex justify-between mb-md">
+            <span class="font-bold">Total</span>
+            <span id="cartTotal" class="font-bold text-primary">Rp 0</span>
+        </div>
+        <button id="checkoutBtn" class="w-full bg-primary text-on-primary py-md rounded-full font-bold hover:shadow-lg transition-all">
+            Checkout Sekarang
+        </button>
+    </div>
+</div>
+
+<main class="pt-20">
+    <!-- Hero Section dengan Background Gambar Penuh -->
+    <section class="relative min-h-[650px] md:min-h-[750px] flex items-center overflow-hidden" id="home">
+        <div class="absolute inset-0 hero-bg-zoom" style="background-image: url('assets/images/Hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-margin_mobile md:px-margin_desktop relative z-10 py-16 md:py-24">
+            <div class="max-w-xl">
+                <span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-lg font-label-lg uppercase tracking-widest inline-block mb-4">Local Premium UMKM</span>
+                <h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-white mb-4">
+                    Es Krim UMKM <br/><span class="text-secondary-fixed">Rasa Premium</span>
+                </h1>
+                <p class="text-body-lg text-white/90 max-w-lg mb-8">
+                    Dibuat dengan bahan lokal pilihan dan resep rahasia yang menghasilkan tekstur lembut luar biasa. Manjakan lidah Anda dengan kemewahan rasa di setiap suapan.
+                </p>
+                <div class="flex flex-wrap gap-md">
+                    <button onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})" 
+                            class="bg-primary-container text-on-primary-container px-xl py-md rounded-full font-headline-md shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                        Order Sekarang
+                    </button>
+                    <button onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})" 
+                            class="flex items-center gap-base px-xl py-md rounded-full font-headline-md border-2 border-white text-white hover:bg-white/10 transition-all">
+                        Lihat Menu <span class="material-symbols-outlined">arrow_downward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="bg-primary text-on-primary py-lg relative z-10">
+        <div class="max-w-7xl mx-auto px-margin_mobile flex flex-col md:flex-row justify-between items-center gap-lg">
+            <div class="text-center md:text-left">
+                <h3 class="text-headline-md font-headline-md mb-xs">Spesial Opening Promo!</h3>
+                <p class="text-body-md opacity-90">Beli 2 Gratis 1 untuk semua varian rasa klasik.</p>
+            </div>
+            <div class="flex gap-md items-center">
+                <div class="text-center"><div class="text-headline-lg font-headline-lg" id="timer-h">12</div><div class="text-label-sm uppercase">Jam</div></div>
+                <span class="text-headline-lg">:</span>
+                <div class="text-center"><div class="text-headline-lg font-headline-lg" id="timer-m">45</div><div class="text-label-sm uppercase">Menit</div></div>
+                <span class="text-headline-lg">:</span>
+                <div class="text-center"><div class="text-headline-lg font-headline-lg" id="timer-s">30</div><div class="text-label-sm uppercase">Detik</div></div>
+            </div>
+            <button onclick="alert('🎉 Promo berhasil diklaim! Gunakan kode PROMO24 di checkout.')" class="bg-secondary-container text-on-secondary-container px-lg py-base rounded-full font-bold pulse-pink">Ambil Promo</button>
+        </div>
+    </section>
+
+    <!-- Product Catalog -->
+    <section class="py-xl px-margin_mobile md:px-margin_desktop bg-surface-container-low" id="produk">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+                <div><h2 class="text-headline-lg font-headline-lg text-primary mb-xs">Varian Rasa Favorit</h2><p class="text-body-lg text-on-surface-variant">Dari kebun lokal ke mangkuk es krim Anda.</p></div>
+                <div class="flex gap-base bg-white dark:bg-surface-dim p-xs rounded-full border border-outline-variant">
+                    <button class="filter-btn px-md py-base bg-primary text-on-primary rounded-full text-label-lg" data-filter="all">Semua</button>
+                    <button class="filter-btn px-md py-base hover:bg-surface-container rounded-full text-label-lg" data-filter="Klasik">Klasik</button>
+                    <button class="filter-btn px-md py-base hover:bg-surface-container rounded-full text-label-lg" data-filter="Eksotis">Eksotis</button>
+                    <button class="filter-btn px-md py-base hover:bg-surface-container rounded-full text-label-lg" data-filter="Vegan">Vegan</button>
+                </div>
+            </div>
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg"></div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="py-xl px-margin_mobile md:px-margin_desktop overflow-hidden" id="tentang">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-xl items-center">
+            <div class="w-full md:w-1/2 relative">
+                <div class="relative z-10 rounded-lg overflow-hidden border-8 border-white shadow-xl">
+                    <img data-custom-img="true" class="w-full h-auto" alt="Pembuatan es krim" src="assets/images/History.jpg" onerror="this.src='https://placehold.co/800x600/f4bb92/ffffff?text=Custom+Image'">
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary-fixed/50 rounded-lg -z-10 animate-pulse"></div>
+            </div>
+            <div class="w-full md:w-1/2 space-y-md">
+                <h2 class="text-headline-lg font-headline-lg text-primary">Cerita Creambro</h2>
+                <p class="text-body-lg text-on-surface-variant">Berawal dari anak rantau yang memulai bisnis dari garasi kecil, kami bermimpi menghadirkan es krim berkualitas tinggi dengan harga yang terjangkau oleh semua kalangan.</p>
+                <div class="grid grid-cols-2 gap-md pt-base">
+                    <div class="flex gap-base items-start"><span class="material-symbols-outlined text-primary p-base bg-primary-fixed rounded-lg">eco</span><div><p class="font-bold">Fresh Ingredients</p><p class="text-label-sm">Bahan alami tanpa pengawet.</p></div></div>
+                    <div class="flex gap-base items-start"><span class="material-symbols-outlined text-primary p-base bg-primary-fixed rounded-lg">home</span><div><p class="font-bold">Local UMKM</p><p class="text-label-sm">Mendukung petani lokal.</p></div></div>
+                </div>
+                <button class="bg-primary text-on-primary px-xl py-base rounded-full font-bold hover:shadow-lg transition-all">Baca Selengkapnya</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-xl bg-surface-container-highest" id="testimoni">
+        <div class="max-w-7xl mx-auto px-margin_mobile md:px-margin_desktop">
+            <div class="text-center mb-xl"><h2 class="text-headline-lg font-headline-lg text-primary">Apa Kata Mereka?</h2><p class="text-body-lg text-on-surface-variant">Ribuan pelanggan telah merasakan kelembutan Creambro.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+                <div class="bg-white dark:bg-surface-dim p-lg rounded-lg shadow-sm border border-outline-variant relative"><div class="flex gap-xs text-secondary mb-md"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-body-md italic mb-lg">"Es krim Duriannya juara! Teksturnya beneran se-creamy itu."</p><div class="flex items-center gap-base"><div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed"><img data-custom-img="true" class="w-full h-full object-cover" alt="avatar" src="https://randomuser.me/api/portraits/women/68.jpg" onerror="this.src='https://placehold.co/100x100'"></div><div><p class="font-bold">Andini Putri</p><p class="text-label-sm text-on-surface-variant">Food Blogger</p></div></div></div>
+                <div class="bg-white dark:bg-surface-dim p-lg rounded-lg shadow-sm border border-outline-variant"><div class="flex gap-xs text-secondary mb-md"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-body-md italic mb-lg">"Pandan Cream favorit saya! Wangi alami dan creamy banget."</p><div class="flex items-center gap-base"><div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed"><img data-custom-img="true" class="w-full h-full object-cover" alt="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" onerror="this.src='https://placehold.co/100x100'"></div><div><p class="font-bold">Budi Santoso</p><p class="text-label-sm text-on-surface-variant">Langganan</p></div></div></div>
+                <div class="bg-white dark:bg-surface-dim p-lg rounded-lg shadow-sm border border-outline-variant"><div class="flex gap-xs text-secondary mb-md"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span></div><p class="text-body-md italic mb-lg">"Coklatnya premium banget, next beli lagi pasti!"</p><div class="flex items-center gap-base"><div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed"><img data-custom-img="true" class="w-full h-full object-cover" alt="avatar" src="https://randomuser.me/api/portraits/women/45.jpg" onerror="this.src='https://placehold.co/100x100'"></div><div><p class="font-bold">Mega Lestari</p><p class="text-label-sm text-on-surface-variant">Content Creator</p></div></div></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<button class="fixed bottom-margin_mobile right-margin_mobile w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center shadow-xl z-40 hover:scale-110 active:scale-95 transition-all animate-bounce" onclick="scrollToTop()"><span class="material-symbols-outlined">arrow_upward</span></button>
+
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant" id="kontak">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-margin_mobile md:px-margin_desktop py-xl max-w-7xl mx-auto">
+        <div class="space-y-md"><div class="text-headline-sm font-headline-sm font-extrabold text-primary">Creambro</div><p class="text-body-md text-on-surface-variant">Menghadirkan kebahagiaan melalui es krim lokal berkualitas premium sejak 2020.</p><div class="flex gap-base"><a class="p-base bg-primary-fixed rounded-full text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">chat</span></a><a class="p-base bg-primary-fixed rounded-full text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">photo_camera</span></a></div></div>
+        <div class="space-y-md"><p class="font-bold text-primary">Menu Cepat</p><ul class="space-y-base text-on-surface-variant"><li><a class="hover:text-primary" href="#home">Home</a></li><li><a class="hover:text-primary" href="#produk">Produk</a></li><li><a class="hover:text-primary" href="#tentang">Tentang</a></li><li><a class="hover:text-primary" href="#testimoni">Testimoni</a></li></ul></div>
+        <div class="space-y-md"><p class="font-bold text-primary">Hubungi Kami</p><ul class="space-y-base text-on-surface-variant"><li class="flex gap-base"><span class="material-symbols-outlined text-primary">call</span> +62 812 3456 789</li><li class="flex gap-base"><span class="material-symbols-outlined text-primary">mail</span> halo@creambro.id</li><li class="flex gap-base"><span class="material-symbols-outlined text-primary">location_on</span> Jl. Manis No. 12, Bandung</li></ul></div>
+        <div class="space-y-md"><p class="font-bold text-primary">Newsletter</p><p class="text-label-sm">Dapatkan info promo terbaru langsung di email Anda.</p><div class="flex gap-xs"><input class="w-full rounded-full border-outline-variant bg-surface-container-low px-md py-base focus:ring-primary focus:border-primary" placeholder="Email Anda" type="email"/><button class="bg-primary text-on-primary p-base rounded-full" onclick="alert('Terima kasih telah berlangganan!')"><span class="material-symbols-outlined">send</span></button></div></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-margin_mobile md:px-margin_desktop py-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md"><p class="text-label-sm text-on-surface-variant">© 2024 Creambro. Dibuat dengan cinta dan es krim.</p><div class="flex gap-lg text-label-sm"><a class="hover:text-primary" href="#">Kebijakan Privasi</a><a class="hover:text-primary" href="#">Syarat &amp; Ketentuan</a></div></div>
+</footer>
+
+<script>
+    // Data produk dengan warna card
+    const products = [
+        { 
+            id: 1, 
+            name: "Durian Delight", 
+            category: "Eksotis", 
+            price: 80000, 
+            rating: 4.9, 
+            desc: "Durian Medan pilihan dengan tekstur super creamy.", 
+            badge: "Bestseller", 
+            img: "assets/images/Durian_Delight.jpg",
+            colorClass: "card-durian"
+        },
+        { 
+            id: 2, 
+            name: "Pandan Cream", 
+            category: "Vegan", 
+            price: 80000, 
+            rating: 4.8, 
+            desc: "Wangi pandan alami yang menyegarkan hari Anda.", 
+            badge: "Vegan", 
+            img: "assets/images/Pandan_Cream.jpg",
+            colorClass: "card-pandan"
+        },
+        { 
+            id: 3, 
+            name: "Chocolate Heaven", 
+            category: "Klasik", 
+            price: 80000, 
+            rating: 5.0, 
+            desc: "Perpaduan 3 jenis cokelat premium untuk pecinta sejati.", 
+            badge: "Rich", 
+            img: "assets/images/Chocolate_Heaven.jpg",
+            colorClass: "card-chocolate"
+        },
+        { 
+            id: 4, 
+            name: "Strawberry Bliss", 
+            category: "Klasik", 
+            price: 80000, 
+            rating: 4.7, 
+            desc: "Strawberry segar dari Lembang, tanpa susu sapi.", 
+            badge: null, 
+            img: "assets/images/Strawberry_Bliss.jpg",
+            colorClass: "card-strawberry"
+        },
+        { 
+            id: 5, 
+            name: "Fresh Taro", 
+            category: "Vegan", 
+            price: 80000, 
+            rating: 4.9, 
+            desc: "Rasa khas dari ubi ungu yang menyehatkan.", 
+            badge: "Limited", 
+            img: "assets/images/Fresh_Taro.jpg",
+            colorClass: "card-taro"
+        },
+        { 
+            id: 6, 
+            name: "Vanilla Classic", 
+            category: "Klasik", 
+            price: 80000, 
+            rating: 4.6, 
+            desc: "Vanilla bean asli tanpa perasa buatan.", 
+            badge: null, 
+            img: "assets/images/Vanilla_Classic.jpg",
+            colorClass: "card-vanilla"
+        }
+    ];
+
+    let cart = JSON.parse(localStorage.getItem('creambro_cart')) || [];
+    let currentFilter = "all";
+
+    function saveCart() { localStorage.setItem('creambro_cart', JSON.stringify(cart)); updateCartUI(); }
+    function updateCartBadge() { document.getElementById('cartCountBadge').innerText = cart.reduce((sum, item) => sum + item.qty, 0); }
+    
+    function updateCartUI() {
+        const container = document.getElementById('cartItemsContainer');
+        const footer = document.getElementById('cartFooter');
+        const totalSpan = document.getElementById('cartTotal');
+        if (!container) return;
+        if (cart.length === 0) { container.innerHTML = '<div class="text-center text-on-surface-variant py-lg">Keranjang masih kosong</div>'; footer.classList.add('hidden'); updateCartBadge(); return; }
+        container.innerHTML = '';
+        let total = 0;
+        cart.forEach(item => {
+            total += item.price * item.qty;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = "flex gap-base bg-white/40 dark:bg-black/10 p-base rounded-lg border border-outline-variant";
+            itemDiv.innerHTML = `
+                <div class="w-20 h-20 bg-primary-fixed rounded-md overflow-hidden"><img class="w-full h-full object-cover" src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/100x100'"></div>
+                <div class="flex-grow"><p class="font-bold text-primary">${item.name}</p>
+                <div class="flex items-center gap-2 mt-1"><button onclick="updateQuantity(${item.id}, -1)" class="bg-surface-container rounded-full w-6 h-6 flex items-center justify-center">-</button><span class="font-medium">${item.qty}</span><button onclick="updateQuantity(${item.id}, 1)" class="bg-surface-container rounded-full w-6 h-6 flex items-center justify-center">+</button></div>
+                <p class="font-bold text-secondary mt-1">Rp ${(item.price * item.qty).toLocaleString()}</p></div>
+                <button onclick="removeFromCart(${item.id})" class="text-error-container"><span class="material-symbols-outlined">delete</span></button>
+            `;
+            container.appendChild(itemDiv);
+        });
+        totalSpan.innerText = `Rp ${total.toLocaleString()}`;
+        footer.classList.remove('hidden');
+        updateCartBadge();
+    }
+    
+    function addToCart(product) { const existing = cart.find(i => i.id === product.id); if(existing) existing.qty++; else cart.push({ ...product, qty: 1 }); saveCart(); showToast(`${product.name} ditambahkan ke keranjang!`); }
+    function updateQuantity(id, delta) { const item = cart.find(i => i.id === id); if(item) { item.qty += delta; if(item.qty <= 0) cart = cart.filter(i => i.id !== id); saveCart(); } }
+    function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); }
+    function showToast(msg) { let toast = document.getElementById('dynamicToast'); if(toast) toast.remove(); toast = document.createElement('div'); toast.id='dynamicToast'; toast.className='fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-primary-container text-on-primary-container px-lg py-base rounded-full shadow-xl z-50 animate-bounce'; toast.innerText=msg; document.body.appendChild(toast); setTimeout(()=>toast.remove(),2000); }
+    
+    // Fungsi checkout ke WhatsApp
+    function checkoutToWhatsApp() {
+        if (cart.length === 0) {
+            showToast("Keranjang masih kosong! Yuk pesan dulu.");
+            return;
+        }
+        
+        let message = "Halo Creambro!%0A%0ASaya ingin memesan es krim berikut:%0A%0A";
+        let total = 0;
+        
+        cart.forEach(item => {
+            message += `🍦 ${item.name} x${item.qty} = Rp ${(item.price * item.qty).toLocaleString()}%0A`;
+            total += item.price * item.qty;
+        });
+        
+        message += `%0A────────────────%0A`;
+        message += `💰 *Total: Rp ${total.toLocaleString()}*%0A%0A`;
+        message += `Silakan konfirmasi pesanan saya. Terima kasih!`;
+        
+        const phoneNumber = "628123456789";
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        
+        window.open(whatsappUrl, '_blank');
+    }
+    
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        if(!grid) return;
+        const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+        grid.innerHTML = filtered.map(p => `
+            <div class="group rounded-lg p-base border border-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ${p.colorClass}">
+                <div class="relative rounded-lg overflow-hidden h-64 mb-md">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="${p.img}" alt="${p.name}" onerror="this.src='https://placehold.co/400x300/f4bb92/ffffff?text=Ganti+Gambar'">
+                    ${p.badge ? `<span class="absolute top-base right-base bg-white/80 text-primary px-base py-xs rounded-full text-label-sm font-label-sm">${p.badge}</span>` : ''}
+                </div>
+                <div class="px-base space-y-xs">
+                    <div class="flex justify-between items-center"><h4 class="text-headline-sm font-headline-sm text-primary">${p.name}</h4><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-label-lg font-bold ml-1">${p.rating}</span></div></div>
+                    <p class="text-body-md text-on-surface-variant">${p.desc}</p>
+                    <div class="flex justify-between items-center pt-md"><span class="text-headline-md font-headline-md text-secondary">Rp ${p.price.toLocaleString()}</span><button onclick='addToCart(${JSON.stringify(p).replace(/'/g, "\\'")})' class="bg-primary-container text-on-primary-container p-base rounded-full hover:scale-110 active:scale-95 transition-all shadow-md"><span class="material-symbols-outlined">add_shopping_cart</span></button></div>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    function toggleDarkMode() { document.documentElement.classList.toggle('dark'); }
+    function toggleCart() { document.getElementById('cartDrawer').classList.toggle('translate-x-full'); }
+    function closeMobileDrawer() { document.getElementById('mobileDrawer').classList.add('-translate-x-full'); }
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    
+    // Countdown Timer
+    function startTimer(duration) {
+        let timer = duration;
+        setInterval(() => {
+            let hours = Math.floor(timer / 3600);
+            let minutes = Math.floor((timer % 3600) / 60);
+            let seconds = timer % 60;
+            document.getElementById('timer-h').textContent = hours < 10 ? "0" + hours : hours;
+            document.getElementById('timer-m').textContent = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById('timer-s').textContent = seconds < 10 ? "0" + seconds : seconds;
+            if (timer > 0) timer--;
+            else timer = duration;
+        }, 1000);
+    }
+    startTimer(3600 * 12 + 45 * 60 + 30);
+    
+    // ========== NAVBAR ACTIVE INDICATOR (DENGAN KONTAK) ==========
+    function updateActiveNav() {
+        const sections = ['home', 'produk', 'tentang', 'testimoni'];
+        const scrollPosition = window.scrollY + 200;
+        
+        let currentSection = 'home';
+        
+        // Cek section biasa
+        for (let section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+                const offsetTop = element.offsetTop;
+                const offsetBottom = offsetTop + element.offsetHeight;
+                
+                if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                    currentSection = section;
+                    break;
+                }
+            }
+        }
+        
+        // Cek khusus untuk kontak (footer)
+        const kontakElement = document.getElementById('kontak');
+        if (kontakElement) {
+            const kontakTop = kontakElement.offsetTop;
+            // Jika scroll sudah melewati testimoni dan mencapai/mendekati footer
+            const testimoniElement = document.getElementById('testimoni');
+            if (testimoniElement) {
+                const testimoniBottom = testimoniElement.offsetTop + testimoniElement.offsetHeight;
+                if (window.scrollY + window.innerHeight >= testimoniBottom - 100) {
+                    currentSection = 'kontak';
+                }
+            }
+            // Alternatif: jika scroll sudah dekat footer
+            if (window.scrollY + window.innerHeight >= kontakTop - 50) {
+                currentSection = 'kontak';
+            }
+        }
+        
+        // Update active class pada nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            link.classList.remove('text-primary');
+            link.classList.add('text-on-surface-variant');
+        });
+        
+        const activeLink = document.querySelector(`.nav-link[data-nav="${currentSection}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+            activeLink.classList.remove('text-on-surface-variant');
+            activeLink.classList.add('text-primary');
+        }
+    }
+    
+    // Smooth scroll untuk semua anchor link
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(updateActiveNav, 100);
+            }
+        });
+    });
+    
+    // Event listener untuk tombol checkout
+    document.getElementById('checkoutBtn')?.addEventListener('click', checkoutToWhatsApp);
+    
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav);
+    
+    // Filter buttons event
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('bg-primary', 'text-on-primary'));
+            this.classList.add('bg-primary', 'text-on-primary');
+            currentFilter = this.getAttribute('data-filter');
+            renderProducts();
+        });
+    });
+    
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', () => { 
+        document.getElementById('mobileDrawer').classList.remove('-translate-x-full'); 
+    });
+    
+    window.onscroll = function() { 
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop; 
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
+        let scrolled = (winScroll / height) * 100; 
+        document.getElementById("progress") && (document.getElementById("progress").style.width = scrolled + "%"); 
+    };
+    
+    renderProducts();
+    updateCartUI();
+    
+
+</script>
+</body>
+</html>
